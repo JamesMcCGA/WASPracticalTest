@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Pets of Students</title>
+</head>
+<body>
+    <img src="{% static 'images/cats_with_fire.jpg' %}" alt="Cat picture 2">
+    <h1>All the cats are:</h1>
+    <ul>
+        {% for cat in cats %}
+            <li>{{ cat }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'student_list' %}">Back to Student List</a>
+</body>
+</html>

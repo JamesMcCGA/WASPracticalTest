@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+    <img src="{% static 'images/cat.png' %}" alt="Cat picture!">
+    <h1>The Students and their cats are:</h1>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.student.first_name }} {{ student.student.last_name }} has <strong>{{ student.num_cats }}</strong> cat{{ student.num_cats|pluralize }}</li>
+            <ul>
+                {% for cat in student.cats %}
+                    <li>{{ cat.name }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'about_pets' %}">About Pets of Students</a>
+</body>
+</html>
